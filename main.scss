@@ -1,0 +1,82 @@
+    * {
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    
+    html {
+        height: 100%;
+        font-size: 20px;
+    }
+    
+    body {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr minmax(300px, 2fr) 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        .wrapper {
+            display: grid;
+            grid-column: 2/3;
+            grid-row: 2/3;
+            justify-self: center;
+            align-self: center;
+            h1 {
+                font-size: 2.5rem;
+                padding: 20px 0px;
+                text-align: center;
+            }
+            .form__elements {
+                display: flex;
+                justify-content: center;
+                //  background: #e1b12c;
+                transition: 0.3s;
+                #searchInput {
+                    margin: 0px 20px;
+                    width: 0px;
+                    display: none;
+                    transition: 0.3s;
+                    outline: none;
+                }
+                #hitSearch {
+                    margin: 0px 10px 0px 5px;
+                    padding: 5px;
+                    transition: 0.3s;
+                    background: none;
+                    opacity: 0.8;
+                    color: #e1b12c;
+                    font-size: 1.8rem;
+                    text-align: center;
+                }
+                #refresh {
+                    margin: 0px 10px 0px 5px;
+                    padding: 5px;
+                    display: none;
+                }
+            }
+            .form__elements:hover {
+                #searchInput {
+                    width: 500px;
+                    border-bottom: solid 3px #e1b12c;
+                    outline: none;
+                    display: block;
+                    width: 300px;
+                }
+                #hitSearch {
+                    font-size: 1.2rem;
+                }
+                #refresh {
+                    display: block;
+                    font-size: 1.2rem;
+                    background: none;
+                    color: #e1b12c;
+                    opacity: 0.8;
+                }
+            }
+            #random__Article {
+                margin: 0 auto;
+                line-height: 2.5rem;
+                text-decoration: none;
+                color: #e1b12c;
+            }
+        }
+    }

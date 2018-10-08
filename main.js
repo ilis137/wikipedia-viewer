@@ -1,28 +1,32 @@
 $(document).ready(function() {
+    $('#hitSearch').click(results);
+    $('#refresh').click(clearSearch);
 
-
-    results();
-    $('#refresh').click(() => {
-        $('#searchInput').val('');
-        $('#content').children().remove();
-    });
 });
 
+
+function clearSearch() {
+
+    $('#searchInput').val('');
+    $('#content').children().remove();
+
+}
+
 function results() {
-    $('#hitSearch').click(function(callback) {
-        $('#contentItem').remove();
-        var searchVal = $('#searchInput').val();
 
-        if (searchVal) {
+    $('#content').children().remove();
+    var searchVal = $('#searchInput').val();
 
-            $.getJSON("https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=" + encodeURI(searchVal) + "&callback=?", function(data) {
+    if (searchVal) {
+        console.log('doing...');
+        $.getJSON("https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=" + encodeURI(searchVal) + "&callback=?", function(data) {
 
-                display(data);
-            });
+            display(data);
+        });
 
 
-        }
-    })
+    }
+
 
 
     $("#searchInput").keypress(function(e) {
@@ -35,7 +39,7 @@ function results() {
 
 function display(data) {
     for (var i = 0; i < data[1].length; i++) {
-        $('#content').append("<div id='content__item'>" + data[1][i] + "</div><div id='content__item'>" + data[2][i] + "</div><div id='content__item'><a href='" + data[3][i] + "' target='_blank'>" + data[3][i] + "</a>  </div>");
+        $('#content').append("<div class='content__item'><div class='title'>" + data[1][i] + "</div><div class='description'>" + data[2][i] + "</div><div id='article__link'><a href='" + data[3][i] + "' target='_blank'>Read More</a>  </div></div>");
         console.log(data[2][i]);
         console.log(data[3][i]);
     }
