@@ -1,7 +1,13 @@
 $(document).ready(function() {
     $('#hitSearch').click(results);
     $('#refresh').click(clearSearch);
-
+    $("#searchInput").keypress(function(e) {
+        if (e.which == 13) {
+            results();
+            console.log('pressed enter...');
+            return false;
+        }
+    });
 });
 
 
@@ -20,21 +26,19 @@ function results() {
     if (searchVal) {
         console.log('doing...');
         $.getJSON("https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=" + encodeURI(searchVal) + "&callback=?", function(data) {
-
+            $('.wrapper').css('grid-row', '1/2');
+            $('#content').css('grid-row', '2/4');
             display(data);
         });
 
 
     }
 
+    function Animate() {
+
+    }
 
 
-    $("#searchInput").keypress(function(e) {
-        if (e.which == 13) {
-            $("#hitSearch").click();
-            return false;
-        }
-    });
 }
 
 function display(data) {

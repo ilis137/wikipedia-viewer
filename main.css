@@ -14,30 +14,36 @@ body {
   display: grid;
   grid-template-columns: 1fr minmax(300px, 2fr) 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  background: #f1f2f6;
 }
 body .wrapper {
-  display: grid;
   grid-column: 2/3;
   grid-row: 2/3;
   justify-self: center;
   align-self: center;
+  transition: all 1.9s;
 }
 body .wrapper h1 {
   font-size: 2.5rem;
   padding: 20px 0px;
   text-align: center;
+  line-height: 5rem;
+  font-family: "Montserrat", verdana;
 }
 body .wrapper .form__elements {
   display: flex;
   justify-content: center;
-  transition: 0.3s;
+  transition: all 0.9s;
+  margin: 0 auto;
+  width: 100%;
 }
 body .wrapper .form__elements #searchInput {
   margin: 0px 20px;
   width: 0px;
   display: none;
-  transition: 0.3s;
+  transition: all 0.9s;
   outline: none;
+  background: none;
 }
 body .wrapper .form__elements #hitSearch {
   margin: 0px 10px 0px 5px;
@@ -55,11 +61,10 @@ body .wrapper .form__elements #refresh {
   display: none;
 }
 body .wrapper .form__elements:hover #searchInput {
-  width: 500px;
+  width: 90%;
   border-bottom: solid 3px #e1b12c;
   outline: none;
   display: block;
-  width: 300px;
 }
 body .wrapper .form__elements:hover #hitSearch {
   font-size: 1.2rem;
@@ -71,11 +76,57 @@ body .wrapper .form__elements:hover #refresh {
   color: #e1b12c;
   opacity: 0.8;
 }
+body .wrapper .form__elements #searchInput:focus {
+  width: 90%;
+  border-bottom: solid 3px #e1b12c;
+  outline: none;
+  display: block;
+}
+body .wrapper .form__elements #searchInput:focus + #hitSearch {
+  font-size: 1.2rem;
+}
+body .wrapper .form__elements #searchInput:focus ~ #refresh {
+  display: block;
+  font-size: 1.2rem;
+  background: none;
+  color: #e1b12c;
+  opacity: 0.8;
+}
 body .wrapper #random__Article {
-  margin: 0 auto;
-  line-height: 2.5rem;
+  display: block;
+  line-height: 4.5rem;
+  font-size: 1.2rem;
   text-decoration: none;
   color: #e1b12c;
+  text-align: center;
+  font-weight: 700;
+  font-family: "Montserrat", verdana;
+}
+body div#content {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+body div#content .content__item {
+  width: minmax(300px, 1fr);
+  box-shadow: 10px 10px 3px rgba(0, 0, 0, 0.3);
+  margin: 20px 0px;
+  padding: 30px;
+  background: white;
+  border-radius: 5px;
+}
+body div#content .content__item .title {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-family: "Cairo";
+}
+body div#content .content__item a {
+  text-decoration: none;
+  color: #e1b12c;
+  line-height: 2rem;
+  font-family: "Cairo";
+}
+body div#content .content__item .description {
+  font-family: "Cairo";
 }
 
 /*# sourceMappingURL=main.css.map */
